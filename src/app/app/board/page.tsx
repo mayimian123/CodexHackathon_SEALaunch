@@ -1,0 +1,89 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { useAppStore } from "@/lib/store";
+import { OPPORTUNITIES, BOARD_SUMMARY } from "@/lib/mock-data";
+import { DecisionChip } from "@/components/primitives/status";
+
+const COLS = "grid grid-cols-[2fr_1fr_1fr_1fr_1fr_90px] items-center gap-0";
+
+export default function BoardPage() {
+  const router = useRouter();
+  const selectProduct = useAppStore((s) => s.selectProduct);
+
+  function select(id: string) {
+    selectProduct(id);
+    router.push("/app/studio");
+  }
+
+  return (
+    <div className="px-14 py-7">
+      <h1 className="font-display text-[34px] font-black tracking-tight text-ink mb-1">
+        {BOARD_SUMMARY.found} opportunities found.
+      </h1>
+      <p className="font-mono text-[10px] tracking-wide text-ink-faint mb-6">
+        <span className="text-ink">{BOARD_SUMMARY.go} Go</span> ·{" "}
+        <span className="text-ink">{BOARD_SUMMARY.watch} Watch</span> · avg margin{" "}
+        <span className="text-ink">{BOARD_SUMMARY.avgMargin}</span> ·{" "}
+        {BOARD_SUMMARY.riskFlags} risk flag
+      </p>
+
+      <div className={`${COLS} pb-2`}>
+        {["Product", "Source", "Price", "Margin", "Risk", "Decision"].map((h) => (
+          <span
+            key={h}
+            className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-ink-faint"
+          >
+            {h}
+          </span>
+        ))}
+      </div>
+
+      {OPPORTUNITIES.map((o, i) => (
+        <motion.button
+          key={o.id}
+          onClick={() => select(o.id)}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: i * 0.1 }}
+          className={`${COLS} group w-full border-t hairline py-3 text-left last:border-b`}
+        >
+          <span>
+            <span className="font-display text-[15px] font-semibold text-ink transition-colors group-hover:text-orange">
+              {o.productName}
+            </span>
+            <span className="block font-display text-[10px] font-light italic text-ink-faint">
+              {o.productDirection}
+            </span>
+          </span>
+          <span className="font-mono text-[11px] text-ink-soft">{o.sourcePrice}</span>
+          <span className="font-mono text-[11px] text-ink-soft">
+            {o.suggestedSellingPrice}
+          </span>
+          <span
+            className={`font-mono text-[11px] ${
+              o.decision === "go" ? "text-go" : "text-watch"
+            }`}
+          >
+            {o.netMargin}
+          </span>
+          <span
+            className={`font-mono text-[11px] ${
+              o.riskLevel === "Low" ? "text-go" : "text-watch"
+            }`}
+          >
+            {o.riskLevel}
+          </span>
+          <motion.span
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: i * 0.1 + 0.2, type: "spring" }}
+          >
+            <DecisionChip decision={o.decision} />
+          </motion.span>
+        </motion.button>
+      ))}
+    </div>
+  );
+}
