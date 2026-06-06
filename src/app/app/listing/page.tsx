@@ -1,9 +1,11 @@
 "use client";
 
 import { LISTING } from "@/lib/mock-data";
+import { useAppStore } from "@/lib/store";
+import Link from "next/link";
 
 export default function ListingPage() {
-  const l = LISTING;
+  const l = useAppStore((s) => s.listing) ?? LISTING;
   return (
     <div>
       <div className="grid min-h-[64vh] grid-cols-2">
@@ -74,6 +76,9 @@ export default function ListingPage() {
           Export CSV
         </button>
         <button className="font-mono text-[9px] text-ink-faint">_ Mark as Approved</button>
+        <Link href="/app/dashboard" className="ml-auto font-mono text-[9px] text-orange">
+          View ROI Dashboard →
+        </Link>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useAppStore } from "@/lib/store";
 import { OPPORTUNITIES, BOARD_SUMMARY } from "@/lib/mock-data";
 import { DecisionChip } from "@/components/primitives/status";
@@ -22,12 +23,15 @@ export default function BoardPage() {
       <h1 className="font-display text-[34px] font-black tracking-tight text-ink mb-1">
         {BOARD_SUMMARY.found} opportunities found.
       </h1>
-      <p className="font-mono text-[10px] tracking-wide text-ink-faint mb-6">
+      <p className="font-mono text-[10px] tracking-wide text-ink-faint">
         <span className="text-ink">{BOARD_SUMMARY.go} Go</span> ·{" "}
         <span className="text-ink">{BOARD_SUMMARY.watch} Watch</span> · avg margin{" "}
         <span className="text-ink">{BOARD_SUMMARY.avgMargin}</span> ·{" "}
         {BOARD_SUMMARY.riskFlags} risk flag
       </p>
+      <Link href="/app/committee" className="font-mono text-[10px] text-orange mb-6 inline-block">
+        View full committee review →
+      </Link>
 
       <div className={`${COLS} pb-2`}>
         {["Product", "Source", "Price", "Margin", "Risk", "Decision"].map((h) => (

@@ -42,9 +42,10 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 export default function BriefPage() {
   const router = useRouter();
-  const { loadDemoBrief, startRun } = useAppStore();
+  const { loadDemoBrief, startRun, setBrief } = useAppStore();
 
   function start() {
+    setBrief(DEMO_BRIEF);
     startRun();
     router.push("/app/org-room");
   }

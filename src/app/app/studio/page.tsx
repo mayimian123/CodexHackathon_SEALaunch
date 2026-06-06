@@ -1,9 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { PACKAGING_TABS, PACKAGING_OUTPUT } from "@/lib/mock-data";
+import { useAppStore } from "@/lib/store";
+
+function Typewriter({ text }: { text: string }) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    setCount(0);
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      setCount(i);
+      if (i >= text.length) clearInterval(id);
+    }, 20);
+    return () => clearInterval(id);
+  }, [text]);
+  return <>{text.slice(0, count)}</>;
+}
 
 function dot(status: string) {
   if (status === "complete") return "bg-go";
@@ -14,7 +30,7 @@ function dot(status: string) {
 export default function StudioPage() {
   const router = useRouter();
   const [active, setActive] = useState("title");
-  const p = PACKAGING_OUTPUT;
+  const p = useAppStore((s) => s.packaging) ?? PACKAGING_OUTPUT;
 
   return (
     <div className="grid min-h-[70vh] grid-cols-[200px_1fr]">
@@ -54,7 +70,7 @@ export default function StudioPage() {
               Shopee Title · Generated
             </p>
             <h2 className="font-display text-xl font-semibold leading-tight text-ink">
-              {p.localizedShopeeTitle}
+              <Typewriter text={p.localizedShopeeTitle} />
             </h2>
             <p className="font-mono text-[9px] text-ink-faint">
               {p.titleCharCount} chars · SEO optimized · Shopee SG compliant
@@ -83,9 +99,12 @@ export default function StudioPage() {
                   ["Main Image", p.heroImageDirection],
                   ["Lifestyle", p.lifestyleImageDirection],
                   ["Feature", p.featureImageDirection],
-                ].map(([label, dir]) => (
-                  <div
+                ].map(([label, dir], i) => (
+                  <motion.div
                     key={label}
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.08, duration: 0.3 }}
                     className="flex aspect-square items-center justify-center rounded-md bg-ivory-deep p-2 text-center"
                   >
                     <span className="font-mono text-[8px] text-ink-faint">
@@ -93,7 +112,7 @@ export default function StudioPage() {
                       <br />
                       {dir}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
