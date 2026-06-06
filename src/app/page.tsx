@@ -111,10 +111,10 @@ export default function Home() {
         </div>
         <motion.div variants={staggerItem} className="relative flex justify-end">
           <Image
-            src="/assets/sealaunch-departments-hero.png"
+            src="/assets/sealaunch-departments-clean.png"
             alt="SeaLaunch AI department map"
-            width={2922}
-            height={1566}
+            width={1426}
+            height={1103}
             priority
             className="w-full max-w-[620px] bg-transparent object-contain xl:max-w-[700px]"
           />
