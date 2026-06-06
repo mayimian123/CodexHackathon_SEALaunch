@@ -34,7 +34,7 @@ export default function OrgRoomPage() {
     <div className="grid min-h-[70vh] grid-cols-[2fr_3fr]">
       {/* Left: department list */}
       <div className="border-r hairline bg-ivory px-8 py-7">
-        <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-5">
+        <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-5">
           AI Commerce Company
         </p>
         {DEPARTMENTS.map((d, i) => (
@@ -43,7 +43,7 @@ export default function OrgRoomPage() {
             href={`/app/org-room/${d.id}`}
             className="flex items-baseline gap-3 border-t hairline py-2.5 last:border-b"
           >
-            <span className="font-mono text-[10px] text-ink-faint w-5">
+            <span className="font-mono text-[11px] text-ink-faint w-5">
               {String(i + 1).padStart(2, "0")}
             </span>
             <span
@@ -61,7 +61,7 @@ export default function OrgRoomPage() {
       {/* Right: output stream */}
       <div className="bg-surface px-9 py-7">
         <div className="flex items-center justify-between mb-4">
-          <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
             Department Output Stream
           </p>
           {allDone && (
@@ -81,13 +81,13 @@ export default function OrgRoomPage() {
             animate={{ opacity: 1, y: 0 }}
             className="border-b hairline py-3"
           >
-            <p className="font-mono text-[9px] font-semibold uppercase tracking-wide text-orange mb-1">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-wide text-orange mb-1">
               {d.department} · Complete
             </p>
             <p className="font-display text-[15px] font-light italic text-ink-soft leading-snug">
               {d.keyFinding}
             </p>
-            <p className="font-mono text-[10px] text-ink-faint mt-1">
+            <p className="font-mono text-[11px] text-ink-faint mt-1">
               {d.outputPreview.map((o) => `${o.label}: ${o.value}`).join(" · ")} · score:{" "}
               {d.score}
             </p>
@@ -96,7 +96,7 @@ export default function OrgRoomPage() {
 
         {!allDone && (
           <div className="py-3 opacity-50">
-            <p className="font-mono text-[9px] font-semibold uppercase tracking-wide text-ink-faint mb-1">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-wide text-ink-faint mb-1">
               {DEPARTMENTS[runningIndex]?.department} · Running…
             </p>
             <p className="font-display text-[15px] font-light italic text-ink-faint">

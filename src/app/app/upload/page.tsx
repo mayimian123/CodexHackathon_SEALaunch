@@ -35,11 +35,11 @@ export default function UploadPage() {
       <div className="grid grid-cols-2">
         {/* Upload */}
         <div className="border-r hairline px-14 py-6">
-          <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-4">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-4">
             Add signals
           </p>
           <div className="mb-6 flex h-32 items-center justify-center rounded-lg border-2 border-dashed border-hairline">
-            <span className="font-mono text-[10px] text-ink-faint">
+            <span className="font-mono text-[11px] text-ink-faint">
               Drop product images or paste a link
             </span>
           </div>
@@ -48,7 +48,7 @@ export default function UploadPage() {
               <span className="font-display text-sm font-semibold text-ink w-36 shrink-0">
                 {t}
               </span>
-              <span className="font-display text-[11px] font-light italic text-ink-soft">
+              <span className="font-display text-[12px] font-light italic text-ink-soft">
                 {d}
               </span>
             </div>
@@ -57,12 +57,12 @@ export default function UploadPage() {
 
         {/* Parse */}
         <div className="bg-surface px-14 py-6">
-          <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-orange mb-4">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-orange mb-4">
             Parsed by AI
           </p>
           {PARSED.map(([k, v]) => (
             <div key={k} className="border-b hairline py-2.5">
-              <p className="font-mono text-[9px] text-ink-faint mb-0.5">{k}</p>
+              <p className="font-mono text-[11px] text-ink-faint mb-0.5">{k}</p>
               <p className="text-[12px] text-ink">{v}</p>
             </div>
           ))}
@@ -78,7 +78,7 @@ export default function UploadPage() {
         </button>
         <button
           onClick={() => router.push("/app/org-room")}
-          className="font-mono text-[10px] text-ink-faint"
+          className="font-mono text-[11px] text-ink-faint"
         >
           _ Skip — I have nothing to add
         </button>

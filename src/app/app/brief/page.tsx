@@ -16,7 +16,7 @@ function Segmented({
       {options.map((o) => (
         <span
           key={o}
-          className={`cursor-pointer border-b-2 px-2.5 py-1 text-[10px] ${
+          className={`cursor-pointer border-b-2 px-2.5 py-1 text-[11px] ${
             o === active
               ? "border-ink font-semibold text-ink"
               : "border-transparent text-ink-soft"
@@ -32,7 +32,7 @@ function Segmented({
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
+      <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
         {label}
       </span>
       {children}
@@ -70,7 +70,7 @@ export default function BriefPage() {
           <Segmented options={["Singapore", "Malaysia", "Thailand"]} active="Singapore" />
         </Field>
         <Field label="Platform">
-          <span className="border-b-2 border-orange py-2 font-mono text-[11px] font-semibold text-orange">
+          <span className="border-b-2 border-orange py-2 font-mono text-[12px] font-semibold text-orange">
             Shopee ·
           </span>
         </Field>
@@ -101,7 +101,7 @@ export default function BriefPage() {
         >
           Start AI Company Run →
         </button>
-        <button onClick={demo} className="font-mono text-[10px] text-ink-faint">
+        <button onClick={demo} className="font-mono text-[11px] text-ink-faint">
           _ Use demo: <span className="text-orange">Mini desk vacuum in Singapore</span>
         </button>
       </div>

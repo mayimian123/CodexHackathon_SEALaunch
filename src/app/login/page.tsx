@@ -22,7 +22,7 @@ export default function LoginPage() {
             Sign in to put your AI commerce company to work on Shopee Singapore.
           </p>
         </div>
-        <p className="font-mono text-[10px] tracking-widest text-white/30 uppercase">
+        <p className="font-mono text-[11px] tracking-widest text-white/30 uppercase">
           Shopee · Singapore
         </p>
       </div>
@@ -37,7 +37,7 @@ export default function LoginPage() {
         </p>
         <div className="flex max-w-sm flex-col gap-5">
           <label className="flex flex-col gap-1.5">
-            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
               Email
             </span>
             <input
@@ -47,7 +47,7 @@ export default function LoginPage() {
             />
           </label>
           <label className="flex flex-col gap-1.5">
-            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint">
               Password
             </span>
             <input
@@ -64,7 +64,7 @@ export default function LoginPage() {
           </Link>
           <Link
             href="/app/brief"
-            className="text-center font-mono text-[10px] text-ink-faint"
+            className="text-center font-mono text-[11px] text-ink-faint"
           >
             _ Skip and try the demo
           </Link>

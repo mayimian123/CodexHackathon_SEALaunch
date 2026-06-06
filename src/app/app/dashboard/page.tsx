@@ -56,7 +56,7 @@ export default function DashboardPage() {
             <div className="font-display text-[40px] font-black leading-none text-ink mb-2">
               <CountUp value={m.value} />
             </div>
-            <div className="font-mono text-[9px] leading-snug text-ink-faint">
+            <div className="font-mono text-[11px] leading-snug text-ink-faint">
               {m.label}
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-2 gap-x-12 gap-y-8 mt-10">
         {PANELS.map(([title, rows]) => (
           <div key={title}>
-            <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-orange mb-3">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-orange mb-3">
               {title}
             </p>
             {rows.map((r) => (

@@ -55,7 +55,7 @@ export default function Home() {
             >
               Build my AI commerce team →
             </Link>
-            <span className="font-mono text-[11px] text-ink-faint">
+            <span className="font-mono text-[12px] text-ink-faint">
               _ or watch a 90-second launch
             </span>
           </div>
@@ -77,7 +77,7 @@ export default function Home() {
                 decimals={s.decimals ?? 0}
               />
             </div>
-            <div className="font-mono text-[11px] leading-relaxed text-white/50">
+            <div className="font-mono text-[12px] leading-relaxed text-white/50">
               {s.label}
               <br />
               <span className="text-orange">{s.sub}</span>
@@ -92,7 +92,7 @@ export default function Home() {
           <h2 className="font-display text-[42px] font-black tracking-tight text-ink">
             Six departments. <span className="font-light italic text-orange">One run.</span>
           </h2>
-          <span className="font-mono text-[11px] uppercase tracking-widest text-ink-faint">
+          <span className="font-mono text-[12px] uppercase tracking-widest text-ink-faint">
             AI Commerce Company
           </span>
         </div>
@@ -122,7 +122,7 @@ export default function Home() {
           (label, i, arr) => (
             <span key={label} className="flex items-center gap-4">
               <span
-                className={`font-mono text-[11px] font-medium tracking-wide ${
+                className={`font-mono text-[12px] font-medium tracking-wide ${
                   i === 1 || i === arr.length - 1 ? "text-orange" : "text-ink"
                 }`}
               >
@@ -145,7 +145,7 @@ export default function Home() {
         >
           Build my AI commerce team →
         </Link>
-        <p className="font-mono text-[10px] text-ink-faint mt-6">
+        <p className="font-mono text-[11px] text-ink-faint mt-6">
           {FLOW_STEPS.length} steps · Shopee Singapore · English
         </p>
       </section>

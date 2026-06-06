@@ -34,7 +34,7 @@ export default function CommitteePage() {
       {/* Decision card */}
       <div className="mb-8 flex items-end justify-between border-b hairline pb-6">
         <div>
-          <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-2">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-2">
             Committee Decision
           </p>
           <div className="flex items-center gap-4">
@@ -58,7 +58,7 @@ export default function CommitteePage() {
       <div className="grid grid-cols-[2fr_1fr] gap-12">
         {/* Score matrix */}
         <div>
-          <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-3">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-3">
             Department Scores
           </p>
           {MATRIX.map((m) => (
@@ -73,7 +73,7 @@ export default function CommitteePage() {
                 {m.score}
               </span>
               <span
-                className={`font-mono text-[10px] font-semibold w-20 ${
+                className={`font-mono text-[11px] font-semibold w-20 ${
                   m.state === "Warning" ? "text-watch" : "text-go"
                 }`}
               >
@@ -85,7 +85,7 @@ export default function CommitteePage() {
             </div>
           ))}
 
-          <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint mt-8 mb-3">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint mt-8 mb-3">
             Conflict resolution
           </p>
           {CONFLICTS.map(([scenario, outcome]) => (
@@ -100,7 +100,7 @@ export default function CommitteePage() {
 
         {/* Weights */}
         <div>
-          <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-3">
+          <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-3">
             Recommendation weights
           </p>
           {WEIGHTS.map(([dim, w]) => (

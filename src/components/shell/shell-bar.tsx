@@ -26,12 +26,13 @@ export function ShellBar() {
                 : "text-ink-faint";
           const glyph = state === "done" ? "✓" : state === "active" ? "●" : "○";
           return (
-            <span
+            <Link
               key={step.key}
-              className={`border-r hairline px-3 font-mono text-[10px] font-semibold tracking-wide last:border-r-0 ${cls}`}
+              href={step.href}
+              className={`border-r hairline px-3 font-mono text-[12px] font-semibold tracking-wide transition-colors last:border-r-0 hover:text-orange ${cls}`}
             >
               {glyph} {step.label}
-            </span>
+            </Link>
           );
         })}
       </div>

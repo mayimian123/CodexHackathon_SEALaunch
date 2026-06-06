@@ -19,7 +19,13 @@ export default function DeptDetailPage({
     <div className="grid min-h-[70vh] grid-cols-[1fr_2fr_1fr]">
       {/* Left: dept list */}
       <div className="border-r hairline bg-ivory px-6 py-6">
-        <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-4">
+        <Link
+          href="/app/org-room"
+          className="mb-5 inline-block font-mono text-[11px] text-orange transition-colors hover:text-ink"
+        >
+          ← Back to Org Room
+        </Link>
+        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-4">
           Departments
         </p>
         {DEPARTMENTS.map((x) => (
@@ -51,12 +57,12 @@ export default function DeptDetailPage({
         <Section title="Key finding">{d.keyFinding}</Section>
         <Section title="Reasoning">{d.reasoning}</Section>
 
-        <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-orange mt-6 mb-2">
+        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-orange mt-6 mb-2">
           Output fields
         </p>
         {d.outputPreview.map((o) => (
           <div key={o.label} className="flex gap-3 border-b hairline py-1.5">
-            <span className="font-mono text-[10px] text-ink-faint w-40 shrink-0">
+            <span className="font-mono text-[11px] text-ink-faint w-40 shrink-0">
               {o.label}
             </span>
             <span className="text-[12px] text-ink">{o.value}</span>
@@ -66,36 +72,36 @@ export default function DeptDetailPage({
 
       {/* Right: evidence */}
       <div className="border-l hairline bg-surface px-6 py-6">
-        <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-3">
+        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-faint mb-3">
           Evidence
         </p>
         {d.evidence.map((e, i) => (
           <div key={i} className="flex gap-2 border-b hairline py-2 items-baseline">
-            <span className="font-mono text-[9px] text-orange">{String(i + 1).padStart(2, "0")}</span>
-            <span className="text-[11px] leading-snug text-ink-soft">{e}</span>
+            <span className="font-mono text-[11px] text-orange">{String(i + 1).padStart(2, "0")}</span>
+            <span className="text-[12px] leading-snug text-ink-soft">{e}</span>
           </div>
         ))}
 
-        <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-ink-faint mt-5 mb-2">
+        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-faint mt-5 mb-2">
           Confidence
         </p>
         <p className="font-display text-3xl font-black text-ink">{d.score}<span className="text-ink-faint text-lg">/100</span></p>
 
         {d.warnings.length > 0 && (
           <>
-            <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-watch mt-5 mb-2">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-watch mt-5 mb-2">
               Warnings
             </p>
             {d.warnings.map((w) => (
-              <p key={w} className="text-[11px] text-watch leading-snug mb-1">⚠ {w}</p>
+              <p key={w} className="text-[12px] text-watch leading-snug mb-1">⚠ {w}</p>
             ))}
           </>
         )}
 
-        <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-ink-faint mt-5 mb-2">
+        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-faint mt-5 mb-2">
           Impact on Committee
         </p>
-        <p className="text-[11px] leading-snug text-ink-soft">{d.impactOnCommittee}</p>
+        <p className="text-[12px] leading-snug text-ink-soft">{d.impactOnCommittee}</p>
       </div>
     </div>
   );
@@ -104,7 +110,7 @@ export default function DeptDetailPage({
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-4">
-      <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-orange mb-1">
+      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-orange mb-1">
         {title}
       </p>
       <p className="text-[13px] leading-relaxed text-ink-soft">{children}</p>

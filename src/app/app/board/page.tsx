@@ -23,13 +23,13 @@ export default function BoardPage() {
       <h1 className="font-display text-[34px] font-black tracking-tight text-ink mb-1">
         {BOARD_SUMMARY.found} opportunities found.
       </h1>
-      <p className="font-mono text-[10px] tracking-wide text-ink-faint">
+      <p className="font-mono text-[11px] tracking-wide text-ink-faint">
         <span className="text-ink">{BOARD_SUMMARY.go} Go</span> ·{" "}
         <span className="text-ink">{BOARD_SUMMARY.watch} Watch</span> · avg margin{" "}
         <span className="text-ink">{BOARD_SUMMARY.avgMargin}</span> ·{" "}
         {BOARD_SUMMARY.riskFlags} risk flag
       </p>
-      <Link href="/app/committee" className="font-mono text-[10px] text-orange mb-6 inline-block">
+      <Link href="/app/committee" className="font-mono text-[11px] text-orange mb-6 inline-block">
         View full committee review →
       </Link>
 
@@ -37,7 +37,7 @@ export default function BoardPage() {
         {["Product", "Source", "Price", "Margin", "Risk", "Decision"].map((h) => (
           <span
             key={h}
-            className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-ink-faint"
+            className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-faint"
           >
             {h}
           </span>
@@ -57,23 +57,23 @@ export default function BoardPage() {
             <span className="font-display text-[15px] font-semibold text-ink transition-colors group-hover:text-orange">
               {o.productName}
             </span>
-            <span className="block font-display text-[10px] font-light italic text-ink-faint">
+            <span className="block font-display text-[11px] font-light italic text-ink-faint">
               {o.productDirection}
             </span>
           </span>
-          <span className="font-mono text-[11px] text-ink-soft">{o.sourcePrice}</span>
-          <span className="font-mono text-[11px] text-ink-soft">
+          <span className="font-mono text-[12px] text-ink-soft">{o.sourcePrice}</span>
+          <span className="font-mono text-[12px] text-ink-soft">
             {o.suggestedSellingPrice}
           </span>
           <span
-            className={`font-mono text-[11px] ${
+            className={`font-mono text-[12px] ${
               o.decision === "go" ? "text-go" : "text-watch"
             }`}
           >
             {o.netMargin}
           </span>
           <span
-            className={`font-mono text-[11px] ${
+            className={`font-mono text-[12px] ${
               o.riskLevel === "Low" ? "text-go" : "text-watch"
             }`}
           >

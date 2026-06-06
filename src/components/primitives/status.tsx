@@ -11,7 +11,7 @@ const STATUS_META: Record<DeptStatus, { glyph: string; label: string; cls: strin
 export function StatusText({ status }: { status: DeptStatus }) {
   const m = STATUS_META[status];
   return (
-    <span className={`font-mono text-[11px] font-semibold tracking-wide ${m.cls}`}>
+    <span className={`font-mono text-[12px] font-semibold tracking-wide ${m.cls}`}>
       <span className={status === "running" ? "animate-pulse" : ""}>{m.glyph}</span>{" "}
       {m.label}
     </span>
