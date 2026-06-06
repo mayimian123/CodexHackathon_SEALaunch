@@ -47,7 +47,7 @@ backbone of the homepage):
 | **Stack** | Next.js + Tailwind + shadcn/ui + Framer Motion |
 | **State** | Zustand store living in the `/app` shell |
 | **Architecture** | Option B — App Shell + Flow (marketing page at `/`, product flow under `/app/*`) |
-| **Scope** | Phase 1 = 6 pages (see §5). Login, Signal Upload, Department Detail, Committee Review, ROI Dashboard deferred to Phase 2 |
+| **Scope** | All 11 pages from the PRD, built in two phases. Phase 1 = 6 core flow pages (§5); Phase 2 = remaining 5 pages (§6). Both phases will be implemented. |
 | **Visual direction** | "Bold editorial, bigger & money-forward" — derived from exploration Direction D + E, scaled up |
 | **Typeface system** | Fraunces (display serif) + IBM Plex Mono (data/labels) + Hanken Grotesk (body) |
 | **Language** | English only |
@@ -232,11 +232,21 @@ App shell, progress 100%. Two-column + action bar:
 
 ---
 
-## 6. Out of Scope (Phase 2)
+## 6. Phase 2 Pages (also in scope, built after Phase 1)
 
-Login / Entry, Product Signal Upload, Department Output Detail, Committee Review
-(standalone), ROI / Check Dashboard. The data shapes above are designed so these
-slot in later without rework.
+These 5 pages complete the full PRD. They are built in Phase 2, after the core
+flow in §5 is working. The data shapes in §4.1 are designed so they slot in
+without rework.
+
+| Page | Route | Core purpose (per PRD) |
+|---|---|---|
+| Login / Entry | `/login` | Sign in, start session, enter the workspace |
+| Product Signal Upload | `/app/upload` | Upload product images, links, keywords, supplier quotes, specs; right-side parse panel guesses name/category/attributes. Sits between Brief and Org Room. |
+| Department Output Detail | `/app/org-room/[dept]` | Deep view of one department: mission, input used, evidence, key calculation, output fields, confidence, warnings, impact on Committee |
+| Committee Review | `/app/committee` | Department score matrix, conflict explanations, recommended weights, final Go/Watch/Reject with confidence |
+| ROI / Check Dashboard | `/app/dashboard` | Opportunities found, launch packs generated, risk blocks, workflow timing, packaging assets, export history, reusable templates |
+
+Phase 2 reuses the same shell, design system, and animation language as Phase 1.
 
 ---
 
