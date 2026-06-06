@@ -9,7 +9,9 @@ export function SiteNav() {
       <div className="flex items-center gap-8">
         <span className="text-sm text-ink-soft">Platform</span>
         <span className="text-sm text-ink-soft">How it works</span>
-        <span className="text-sm text-ink-soft">Pricing</span>
+        <Link href="/app/history" className="text-sm text-ink-soft hover:text-orange">
+          Case history
+        </Link>
         <Link
           href="/app/brief"
           className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white"

@@ -28,6 +28,14 @@ describe("types", () => {
       id: "p1",
       productName: "Mini Desk Vacuum",
       productDirection: "Office",
+      targetMarkets: ["Singapore"],
+      heroImage: "/assets/mini-desk-vacuum-pack.png",
+      galleryImages: {
+        main: "/assets/mini-desk-vacuum-main.png",
+        lifestyle: "/assets/mini-desk-vacuum-lifestyle.png",
+        feature: "/assets/mini-desk-vacuum-feature.png",
+      },
+      shopeeUrl: "https://shopee.sg/search?keyword=mini%20desk%20vacuum",
       sourcePrice: "SGD 3.80",
       suggestedSellingPrice: "SGD 14.90",
       grossMargin: "60%",
@@ -40,6 +48,10 @@ describe("types", () => {
       confidenceScore: 82,
       decision: "go",
       keyReason: "Clear scenario.",
+      runSummary: "Demo run summary.",
+      evidenceLinks: [],
+      agentTimeline: [],
+      regionSnapshots: [],
     };
     expect(["go", "watch", "reject"]).toContain(o.decision);
   });

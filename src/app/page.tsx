@@ -1,12 +1,58 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { SiteNav } from "@/components/marketing/site-nav";
 import { CountUp } from "@/components/primitives/count-up";
 import { staggerContainer, staggerItem } from "@/components/primitives/motion";
 import { DEPARTMENTS, HOMEPAGE_STATS } from "@/lib/mock-data";
 import { FLOW_STEPS } from "@/lib/flow";
+
+const AGENT_DEPARTMENTS = [
+  {
+    cn: "市场洞察部",
+    en: "Market Department",
+    agent: "Market Agent",
+    role: "Judges market heat, search trends, competitors, price band and platform opportunity.",
+  },
+  {
+    cn: "货源采购部",
+    en: "Sourcing Department",
+    agent: "Sourcing Agent",
+    role: "Finds supplier options, checks stock, MOQ, fulfillment stability and sourcing feasibility.",
+  },
+  {
+    cn: "利润测算部",
+    en: "Margin Department",
+    agent: "Margin Agent",
+    role: "Calculates true profit after cost, platform fees, logistics, ad room and scenario margins.",
+  },
+  {
+    cn: "风险合规部",
+    en: "Risk Department",
+    agent: "Risk Agent",
+    role: "Checks platform rules, compliance risk, IP risk, claims, battery and electronics safety.",
+  },
+  {
+    cn: "商品上架部",
+    en: "Listing Department",
+    agent: "Listing Agent",
+    role: "Generates title, bullets, keywords, image prompts, detail structure and platform fields.",
+  },
+  {
+    cn: "包装增长部",
+    en: "Packaging Department",
+    agent: "Packaging Agent",
+    role: "Designs bundles, gifts, visual direction and value framing to lift buyer appeal.",
+  },
+  {
+    cn: "投审委员会",
+    en: "Committee Department",
+    agent: "Committee Agent",
+    role: "Aggregates every department, resolves conflicts and outputs Go / Watch / Reject.",
+  },
+];
 
 export default function Home() {
   return (
@@ -18,52 +64,65 @@ export default function Home() {
         variants={staggerContainer}
         initial="hidden"
         animate="show"
-        className="px-14 pt-20 pb-16"
+        className="grid items-center gap-8 px-6 pt-12 pb-12 md:px-14 md:pt-18 lg:grid-cols-[3fr_2fr]"
       >
-        <motion.p
-          variants={staggerItem}
-          className="font-mono text-xs font-medium uppercase tracking-[0.3em] text-orange mb-8"
-        >
-          Shopee Singapore · Built for one seller
-        </motion.p>
-        <motion.h1
-          variants={staggerItem}
-          className="font-display text-[96px] leading-[0.9] font-black tracking-[-0.03em] text-ink mb-10"
-        >
-          Zero-person
-          <br />
-          company.
-          <br />
-          <span className="font-light italic text-orange">Endless</span> profit.
-        </motion.h1>
-        <motion.div
-          variants={staggerItem}
-          className="flex items-end justify-between gap-10"
-        >
-          <p className="font-display text-[22px] font-light italic leading-relaxed text-ink-soft max-w-xl">
-            An entire AI commerce company — market, sourcing, margin, risk and
-            listing — working a{" "}
-            <span className="not-italic font-semibold text-ink">
-              single seller&apos;s
-            </span>{" "}
-            Shopee store. No team. No agency. No payroll.
-          </p>
-          <div className="flex flex-col items-end gap-3.5 shrink-0">
+        <div>
+          <motion.p
+            variants={staggerItem}
+            className="mb-8 font-mono text-xs font-medium uppercase tracking-[0.3em] text-orange"
+          >
+            Shopee Singapore · Built for one seller
+          </motion.p>
+          <motion.h1
+            variants={staggerItem}
+            className="mb-7 font-display text-[34px] font-black leading-[1.04] text-ink md:text-[44px] xl:text-[50px]"
+          >
+            <span className="whitespace-nowrap">One seller.</span>
+            <br />
+            <span className="whitespace-nowrap">One AI commerce team.</span>
+            <br />
+            <span className="whitespace-nowrap font-light italic text-orange">
+              Endless Shopee-ready
+            </span>
+            <br />
+            <span className="whitespace-nowrap">opportunities.</span>
+          </motion.h1>
+          <motion.p
+            variants={staggerItem}
+            className="max-w-xl font-display text-[21px] font-light italic leading-relaxed text-ink-soft"
+          >
+            Seven AI departments work like a real commerce company: market,
+            sourcing, margin, risk, listing, packaging and committee.
+          </motion.p>
+          <motion.div variants={staggerItem} className="mt-8 flex flex-wrap items-center gap-3">
             <Link
               href="/app/brief"
-              className="flex items-center gap-3 rounded-full bg-orange px-8 py-[18px] text-base font-bold text-white"
+              className="inline-flex items-center gap-3 rounded-full bg-orange px-7 py-4 text-sm font-bold text-white"
             >
               Build my AI commerce team →
             </Link>
-            <span className="font-mono text-[12px] text-ink-faint">
-              _ or watch a 90-second launch
-            </span>
-          </div>
+            <Link
+              href="/app/history"
+              className="inline-flex items-center rounded-full border border-hairline bg-surface px-7 py-4 font-mono text-[12px] font-semibold text-ink"
+            >
+              Open demo history
+            </Link>
+          </motion.div>
+        </div>
+        <motion.div variants={staggerItem} className="relative flex justify-end">
+          <Image
+            src="/assets/sealaunch-departments-hero.png"
+            alt="SeaLaunch AI department map"
+            width={2922}
+            height={1566}
+            priority
+            className="w-full max-w-[620px] bg-transparent object-contain xl:max-w-[700px]"
+          />
         </motion.div>
       </motion.section>
 
       {/* Money band */}
-      <section className="grid grid-cols-4 bg-ink px-14 py-12">
+      <section className="grid gap-px bg-ink px-6 py-8 md:grid-cols-4 md:px-14 md:py-12">
         {HOMEPAGE_STATS.map((s, i) => (
           <div
             key={i}
@@ -87,17 +146,17 @@ export default function Home() {
       </section>
 
       {/* Departments */}
-      <section className="px-14 py-16">
+      <section className="px-6 py-16 md:px-14">
         <div className="flex items-baseline justify-between mb-10">
           <h2 className="font-display text-[42px] font-black tracking-tight text-ink">
-            Six departments. <span className="font-light italic text-orange">One run.</span>
+            Seven departments. <span className="font-light italic text-orange">One run.</span>
           </h2>
           <span className="font-mono text-[12px] uppercase tracking-widest text-ink-faint">
             AI Commerce Company
           </span>
         </div>
         <div>
-          {DEPARTMENTS.filter((d) => d.id !== "committee").map((d, i) => (
+          {DEPARTMENTS.map((d, i) => (
             <div
               key={d.id}
               className="group flex items-center gap-8 border-t hairline py-6 last:border-b"
@@ -111,6 +170,34 @@ export default function Home() {
               <span className="font-display text-[19px] font-light italic text-ink-soft flex-1">
                 {d.question}
               </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t hairline px-6 py-16 md:px-14">
+        <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+          <h2 className="font-display text-[38px] font-black text-ink">
+            The company behind the run.
+          </h2>
+          <Link href="/app/history" className="font-mono text-[12px] font-semibold text-orange">
+            View live case history →
+          </Link>
+        </div>
+        <div className="grid gap-px bg-hairline md:grid-cols-7">
+          {AGENT_DEPARTMENTS.map((d, i) => (
+            <div key={d.agent} className="bg-surface p-4">
+              <span className="font-mono text-[11px] text-ink-faint">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 font-display text-[20px] font-black leading-tight text-ink">
+                {d.agent}
+              </h3>
+              <p className="mt-1 font-mono text-[10px] uppercase tracking-wide text-orange">
+                {d.en}
+              </p>
+              <p className="mt-1 text-[12px] text-ink-soft">{d.cn}</p>
+              <p className="mt-4 text-[12px] leading-relaxed text-ink-soft">{d.role}</p>
             </div>
           ))}
         </div>

@@ -7,13 +7,14 @@ import {
 } from "./mock-data";
 
 describe("mock data", () => {
-  it("has the six departments in order", () => {
+  it("has the seven departments in order", () => {
     expect(DEPARTMENTS.map((d) => d.id)).toEqual([
       "market",
       "sourcing",
       "margin",
       "risk",
       "listing",
+      "packaging",
       "committee",
     ]);
   });

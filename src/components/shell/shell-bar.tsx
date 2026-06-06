@@ -47,6 +47,16 @@ export function ShellBar() {
         >
           ◆ Dashboard
         </Link>
+        <Link
+          href="/app/history"
+          className={`ml-3 rounded-full border px-3 py-1 font-mono text-[12px] font-semibold tracking-wide transition-colors hover:text-orange ${
+            pathname.startsWith("/app/history")
+              ? "border-orange text-orange"
+              : "border-hairline text-ink-faint"
+          }`}
+        >
+          ◆ History
+        </Link>
       </div>
     </div>
   );

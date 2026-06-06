@@ -10,8 +10,8 @@ import {
   DEMO_BRIEF,
   DEPARTMENTS,
   OPPORTUNITIES,
-  PACKAGING_OUTPUT,
-  LISTING,
+  listingFor,
+  packagingFor,
 } from "./mock-data";
 import type { FlowKey } from "./flow";
 
@@ -47,8 +47,8 @@ export const useAppStore = create<AppState>((set) => ({
   selectProduct: (id) =>
     set({
       selectedProductId: id,
-      packaging: PACKAGING_OUTPUT,
-      listing: LISTING,
+      packaging: packagingFor(id),
+      listing: listingFor(id),
     }),
   setStep: (step) => set({ currentStep: step }),
   reset: () =>

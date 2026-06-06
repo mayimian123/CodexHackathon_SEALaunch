@@ -2,12 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useAppStore } from "@/lib/store";
 import { OPPORTUNITIES, BOARD_SUMMARY } from "@/lib/mock-data";
 import { DecisionChip } from "@/components/primitives/status";
 
-const COLS = "grid grid-cols-[2fr_1fr_1fr_1fr_1fr_90px] items-center gap-0";
+const COLS =
+  "grid grid-cols-[2.2fr_0.9fr_0.9fr_0.9fr_0.9fr_90px] items-center gap-0";
 
 export default function BoardPage() {
   const router = useRouter();
@@ -53,12 +55,20 @@ export default function BoardPage() {
           transition={{ delay: i * 0.1 }}
           className={`${COLS} group w-full border-t hairline py-3 text-left last:border-b`}
         >
-          <span>
-            <span className="font-display text-[15px] font-semibold text-ink transition-colors group-hover:text-orange">
-              {o.productName}
+          <span className="flex items-center gap-3 pr-4">
+            <span className="relative h-14 w-20 shrink-0 overflow-hidden bg-ivory-deep">
+              <Image src={o.heroImage} alt={o.productName} fill className="object-cover" />
             </span>
-            <span className="block font-display text-[11px] font-light italic text-ink-faint">
-              {o.productDirection}
+            <span>
+              <span className="font-display text-[15px] font-semibold text-ink transition-colors group-hover:text-orange">
+                {o.productName}
+              </span>
+              <span className="block font-display text-[11px] font-light italic text-ink-faint">
+                {o.productDirection}
+              </span>
+              <span className="mt-1 block font-mono text-[10px] text-orange">
+                {o.targetMarkets.join(" + ")} · {o.evidenceLinks.length || 1} evidence links
+              </span>
             </span>
           </span>
           <span className="font-mono text-[12px] text-ink-soft">{o.sourcePrice}</span>

@@ -45,6 +45,10 @@ export interface Opportunity {
   id: string;
   productName: string;
   productDirection: string;
+  targetMarkets: string[];
+  heroImage: string;
+  galleryImages: ProductGalleryImages;
+  shopeeUrl: string;
   sourcePrice: string;
   suggestedSellingPrice: string;
   grossMargin: string;
@@ -57,6 +61,36 @@ export interface Opportunity {
   confidenceScore: number;
   decision: Decision;
   keyReason: string;
+  evidenceLinks: EvidenceLink[];
+  runSummary: string;
+  agentTimeline: AgentTimelineItem[];
+  regionSnapshots: RegionSnapshot[];
+}
+
+export interface ProductGalleryImages {
+  main: string;
+  lifestyle: string;
+  feature: string;
+}
+
+export interface EvidenceLink {
+  label: string;
+  href: string;
+  price: string;
+  type: "supplier" | "marketplace" | "demand";
+}
+
+export interface AgentTimelineItem {
+  agent: string;
+  result: string;
+  status: DeptStatus;
+}
+
+export interface RegionSnapshot {
+  market: string;
+  priceBand: string;
+  buyerAngle: string;
+  decision: Decision;
 }
 
 export interface PackagingTab {

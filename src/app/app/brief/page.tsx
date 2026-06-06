@@ -8,18 +8,24 @@ import { DEMO_BRIEF } from "@/lib/mock-data";
 function Segmented({
   options,
   defaultValue,
+  onChange,
 }: {
   options: string[];
   defaultValue: string;
+  onChange?: (value: string) => void;
 }) {
   const [selected, setSelected] = useState(defaultValue);
+  function choose(value: string) {
+    setSelected(value);
+    onChange?.(value);
+  }
   return (
     <div className="flex flex-wrap gap-3">
       {options.map((o) => (
         <button
           key={o}
           type="button"
-          onClick={() => setSelected(o)}
+          onClick={() => choose(o)}
           className={`cursor-pointer border-b-2 px-2.5 py-1 text-[11px] transition-colors ${
             o === selected
               ? "border-ink font-semibold text-ink"
@@ -47,9 +53,26 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 export default function BriefPage() {
   const router = useRouter();
   const { loadDemoBrief, startRun, setBrief } = useAppStore();
+  const [targetMarket, setTargetMarket] = useState(DEMO_BRIEF.targetMarket);
+  const [keywords, setKeywords] = useState(DEMO_BRIEF.keywords);
+  const [budgetRange, setBudgetRange] = useState(DEMO_BRIEF.budgetRange);
+  const [expectedMargin, setExpectedMargin] = useState(DEMO_BRIEF.expectedMargin);
+  const [riskPreference, setRiskPreference] = useState("Balanced");
 
   function start() {
-    setBrief(DEMO_BRIEF);
+    setBrief({
+      ...DEMO_BRIEF,
+      targetMarket,
+      keywords,
+      budgetRange,
+      expectedMargin,
+      riskPreference:
+        riskPreference === "Conservative"
+          ? "conservative"
+          : riskPreference === "High-risk"
+            ? "high_risk"
+            : "balanced",
+    });
     startRun();
     router.push("/app/org-room");
   }
@@ -71,7 +94,11 @@ export default function BriefPage() {
 
       <div className="grid grid-cols-2 gap-x-10 gap-y-7 px-14 pb-8">
         <Field label="Target Market">
-          <Segmented options={["Singapore", "Malaysia", "Thailand"]} defaultValue="Singapore" />
+          <Segmented
+            options={["Singapore", "Malaysia", "Thailand"]}
+            defaultValue="Singapore"
+            onChange={setTargetMarket}
+          />
         </Field>
         <Field label="Platform">
           <span className="border-b-2 border-orange py-2 font-mono text-[12px] font-semibold text-orange">
@@ -81,20 +108,30 @@ export default function BriefPage() {
         <Field label="Product Direction">
           <input
             defaultValue={DEMO_BRIEF.keywords}
+            onChange={(e) => setKeywords(e.target.value)}
             className="border-b-2 hairline bg-transparent py-2 text-sm text-ink outline-none focus:border-orange"
           />
         </Field>
         <Field label="Budget Range">
           <input
             defaultValue={DEMO_BRIEF.budgetRange}
+            onChange={(e) => setBudgetRange(e.target.value)}
             className="border-b-2 hairline bg-transparent py-2 text-sm text-ink outline-none focus:border-orange"
           />
         </Field>
         <Field label="Margin Target">
-          <Segmented options={["20%", "30%", "50%+"]} defaultValue="30%" />
+          <Segmented
+            options={["20%", "30%", "50%+"]}
+            defaultValue="30%"
+            onChange={setExpectedMargin}
+          />
         </Field>
         <Field label="Risk Preference">
-          <Segmented options={["Conservative", "Balanced", "High-risk"]} defaultValue="Balanced" />
+          <Segmented
+            options={["Conservative", "Balanced", "High-risk"]}
+            defaultValue="Balanced"
+            onChange={setRiskPreference}
+          />
         </Field>
       </div>
 
