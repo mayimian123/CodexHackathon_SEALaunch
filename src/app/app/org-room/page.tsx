@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { DEPARTMENTS } from "@/lib/mock-data";
 import { StatusText } from "@/components/primitives/status";
 import type { DeptStatus } from "@/lib/types";
@@ -37,8 +38,9 @@ export default function OrgRoomPage() {
           AI Commerce Company
         </p>
         {DEPARTMENTS.map((d, i) => (
-          <div
+          <Link
             key={d.id}
+            href={`/app/org-room/${d.id}`}
             className="flex items-baseline gap-3 border-t hairline py-2.5 last:border-b"
           >
             <span className="font-mono text-[10px] text-ink-faint w-5">
@@ -52,7 +54,7 @@ export default function OrgRoomPage() {
               {d.shortName}
             </span>
             <StatusText status={statusFor(i)} />
-          </div>
+          </Link>
         ))}
       </div>
 
