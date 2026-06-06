@@ -1,29 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAppStore } from "@/lib/store";
 import { DEMO_BRIEF } from "@/lib/mock-data";
 
 function Segmented({
   options,
-  active,
+  defaultValue,
 }: {
   options: string[];
-  active: string;
+  defaultValue: string;
 }) {
+  const [selected, setSelected] = useState(defaultValue);
   return (
     <div className="flex flex-wrap gap-3">
       {options.map((o) => (
-        <span
+        <button
           key={o}
-          className={`cursor-pointer border-b-2 px-2.5 py-1 text-[11px] ${
-            o === active
+          type="button"
+          onClick={() => setSelected(o)}
+          className={`cursor-pointer border-b-2 px-2.5 py-1 text-[11px] transition-colors ${
+            o === selected
               ? "border-ink font-semibold text-ink"
-              : "border-transparent text-ink-soft"
+              : "border-transparent text-ink-soft hover:text-ink"
           }`}
         >
           {o}
-        </span>
+        </button>
       ))}
     </div>
   );
@@ -67,7 +71,7 @@ export default function BriefPage() {
 
       <div className="grid grid-cols-2 gap-x-10 gap-y-7 px-14 pb-8">
         <Field label="Target Market">
-          <Segmented options={["Singapore", "Malaysia", "Thailand"]} active="Singapore" />
+          <Segmented options={["Singapore", "Malaysia", "Thailand"]} defaultValue="Singapore" />
         </Field>
         <Field label="Platform">
           <span className="border-b-2 border-orange py-2 font-mono text-[12px] font-semibold text-orange">
@@ -87,10 +91,10 @@ export default function BriefPage() {
           />
         </Field>
         <Field label="Margin Target">
-          <Segmented options={["20%", "30%", "50%+"]} active="30%" />
+          <Segmented options={["20%", "30%", "50%+"]} defaultValue="30%" />
         </Field>
         <Field label="Risk Preference">
-          <Segmented options={["Conservative", "Balanced", "High-risk"]} active="Balanced" />
+          <Segmented options={["Conservative", "Balanced", "High-risk"]} defaultValue="Balanced" />
         </Field>
       </div>
 
