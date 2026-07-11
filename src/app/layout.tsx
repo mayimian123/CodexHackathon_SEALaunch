@@ -22,7 +22,7 @@ const hanken = Hanken_Grotesk({
 export const metadata: Metadata = {
   title: "SeaLaunch AI — One seller. One AI commerce team.",
   description:
-    "An AI commerce company built for one Shopee seller. Six departments, one run.",
+    "An AI commerce company built for one Shopee seller. Seven departments, one run.",
 };
 
 export default function RootLayout({

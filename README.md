@@ -1,6 +1,6 @@
 # SeaLaunch AI
 
-**Built at the Sea × OpenAI Regional Codex Hackathon, Singapore (319 teams applied, 40 selected).**
+**Built at the [Sea × OpenAI Regional Codex Hackathon — Singapore](https://luma.com/kv0kks2a?locale=en-GB) — 319 teams applied, with 40 team slots available.**
 
 SeaLaunch turns one Shopee seller into an AI commerce team. Seven specialized agents work from a seller brief to evaluate product opportunities, model unit economics, check risk, shape packaging, and produce a Shopee-ready launch pack.
 
