@@ -12,21 +12,27 @@ SeaLaunch turns one Shopee seller into an AI commerce team. Seven specialized ag
 
 ### One seller, one AI commerce team
 
-![SeaLaunch homepage showing the seven-department AI commerce company](public/screenshots/homepage.jpg)
+![SeaLaunch homepage showing the seven-department AI commerce company](public/screenshots/homepage.png)
 
-### Seven agents, one coordinated run
+### Seven specialized departments
 
-The organization room makes the multi-agent workflow visible: Market, Sourcing, Margin, Risk, Listing, Packaging, and Committee agents complete their analyses in sequence and stream their findings into one shared decision process.
+Market, Sourcing, Margin, Risk, Listing, Packaging, and Committee agents each own a specific commerce decision, then contribute to one final recommendation.
 
-![SeaLaunch organization room showing seven completed agent departments](public/screenshots/org-room.jpg)
+![SeaLaunch organization map showing seven specialized agent departments](public/screenshots/agent-departments.png)
 
 ### Ranked opportunities with real unit economics
 
-![SeaLaunch opportunity board ranking five product opportunities](public/screenshots/opportunity-board.jpg)
+![SeaLaunch opportunity board ranking five product opportunities](public/screenshots/opportunity-board.png)
 
-### Packaging direction ready for launch
+### A Shopee-ready launch pack
 
-![SeaLaunch packaging studio for the Mini Desk Vacuum demo case](public/screenshots/packaging-studio.jpg)
+![SeaLaunch Shopee launch pack for the Mini Desk Vacuum demo case](public/screenshots/shopee-launch-pack.png)
+
+## Technical architecture
+
+The current repository is a frontend demo backed by transparent mock/static data. The diagram below describes the target production architecture: an orchestrated agent runtime, department-level responsibilities, risk checkpoints, provider integrations, and an auditable run-result contract.
+
+![SeaLaunch target multi-agent workflow and production system architecture](public/screenshots/technical-architecture.png)
 
 ## Product flow
 
