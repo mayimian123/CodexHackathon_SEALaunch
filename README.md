@@ -1,24 +1,55 @@
-# SeaLaunch AI — Website
+# SeaLaunch AI
 
-An AI commerce company built for one Shopee seller. Marketing site + product flow.
+**Built at the Sea × OpenAI Regional Codex Hackathon, Singapore (319 teams applied, 40 selected).**
+
+SeaLaunch turns one Shopee seller into an AI commerce team. Seven specialized agents work from a seller brief to evaluate product opportunities, model unit economics, check risk, shape packaging, and produce a Shopee-ready launch pack.
+
+[Live product demo](https://codexhackathon-sealaunch.vercel.app/) · [Hackathon pitch](https://sealaunch-pitch.vercel.app/)
+
+> The current demo uses transparent mock/static data from `src/lib/mock-data.ts`, shaped to match a future backend. The featured case is a Mini Desk Vacuum for Singapore.
+
+## Product walkthrough
+
+### One seller, one AI commerce team
+
+![SeaLaunch homepage showing the seven-department AI commerce company](public/screenshots/homepage.jpg)
+
+### Seven agents, one coordinated run
+
+The organization room makes the multi-agent workflow visible: Market, Sourcing, Margin, Risk, Listing, Packaging, and Committee agents complete their analyses in sequence and stream their findings into one shared decision process.
+
+![SeaLaunch organization room showing seven completed agent departments](public/screenshots/org-room.jpg)
+
+### Ranked opportunities with real unit economics
+
+![SeaLaunch opportunity board ranking five product opportunities](public/screenshots/opportunity-board.jpg)
+
+### Packaging direction ready for launch
+
+![SeaLaunch packaging studio for the Mini Desk Vacuum demo case](public/screenshots/packaging-studio.jpg)
+
+## Product flow
+
+`Seller brief` → `AI company` → `Opportunity board` → `Packaging studio` → `Shopee listing`
+
+- `/app/brief` — capture the seller's market, category, and operating constraints
+- `/app/org-room` — watch seven AI departments analyze the brief
+- `/app/board` — compare ranked opportunities, margins, and risk signals
+- `/app/studio` — turn the selected opportunity into a packaging concept
+- `/app/listing` — generate the final Shopee-ready launch pack
+- `/app/history`, `/app/dashboard`, and `/app/org-room/[dept]` — inspect previous cases, metrics, and department-level evidence
 
 ## Stack
-Next.js (App Router, TS) · Tailwind v4 · shadcn/ui · Framer Motion · Zustand · Vitest.
 
-## Develop
+Next.js App Router · TypeScript · Tailwind CSS v4 · shadcn/ui · Framer Motion · Zustand · Vitest
+
+## Run locally
+
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm test         # unit tests (store, flow, mock data)
+npm test         # store, flow, and mock-data unit tests
 npm run build    # production build
 ```
 
-## Routes
-- `/` Homepage · `/login` Login
-- Flow: `/app/brief` → `/app/org-room` → `/app/board` → `/app/studio` → `/app/listing`
-- Also: `/app/upload`, `/app/org-room/[dept]`, `/app/committee`, `/app/dashboard`
-
-Data is mock/static (`src/lib/mock-data.ts`), shaped to match the future backend.
-Demo case: Mini Desk Vacuum in Singapore.
-
-See `docs/superpowers/specs/2026-06-06-sealaunch-ai-website-design.md` for the design spec.
+See [`docs/superpowers/specs/2026-06-06-sealaunch-ai-website-design.md`](docs/superpowers/specs/2026-06-06-sealaunch-ai-website-design.md) for the design specification.
